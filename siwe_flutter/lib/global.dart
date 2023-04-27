@@ -1,0 +1,19 @@
+import 'package:walletconnect_dart/walletconnect_dart.dart';
+import 'package:web3dart/web3dart.dart';
+
+EthereumWalletConnectProvider? ethereumProvider;
+String? message;
+String? signature;
+String? address;
+String? domain;
+String? statement;
+String? uri;
+String? version;
+String? chainId;
+Object? payload;
+String? nonce;
+String? bridge;
+String? name;
+String? description;
+String? url;
+String? icon;
