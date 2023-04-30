@@ -4,11 +4,11 @@ import 'package:walletconnect_dart/walletconnect_dart.dart';
 import 'package:web3dart/web3dart.dart';
 import 'global.dart';
 
-/// Create a provider for Ethereum, must supply context to display modal, bridge url, name, description, url, and icon.
-Future<void> initializeEthereumProvider(BuildContext context, String bridge,
+/// Initalize a provider, you must supply: context to display modal, bridge url, app name, app description, your app url, and icon to display on connection.
+Future<void> initializeProvider(BuildContext context, String bridge,
     String name, String description, String url, String icon) async {
   // Create a connector
-  final qrCodeModal = WalletConnectQrCodeModal(
+  walletModal = WalletConnectQrCodeModal(
     connector: WalletConnect(
       /// <-- Your bridge url
       bridge: bridge,
@@ -21,12 +21,18 @@ Future<void> initializeEthereumProvider(BuildContext context, String bridge,
       ),
     ),
   );
-  final session = await qrCodeModal.connect(context).catchError((error) {
+  walletModal?.registerListeners(
+    onConnect: (session) => print('Connected: $session'),
+    onSessionUpdate: (response) => print('Session updated: $response'),
+    onDisconnect: () => print('Disconnected'),
+  );
+  final session = await walletModal?.connect(context).catchError((error) {
     print('Error: $error');
     return null;
   });
+
   // Create a provider and set it to the global variable
-  ethereumProvider = EthereumWalletConnectProvider(qrCodeModal.connector);
+  ethereumProvider = EthereumWalletConnectProvider(walletModal!.connector);
   final sender = EthereumAddress.fromHex(session!.accounts[0]);
   // set address to global variable
   address = sender.hexEip55;
