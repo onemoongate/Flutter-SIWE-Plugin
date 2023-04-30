@@ -50,7 +50,7 @@ class __ConnectWalletButtonState extends State<_ConnectWalletButton> {
     return ElevatedButton(
       onPressed: () async {
         // add wallet code here
-        await initializeEthereumProvider(
+        await initializeProvider(
           context,
           "https://bridge.walletconnect.org",
           'MoonGate',
@@ -58,10 +58,11 @@ class __ConnectWalletButtonState extends State<_ConnectWalletButton> {
           'localhost:3000',
           'https://www.joinef.com/wp-content/uploads/2023/03/MoonGate-5-Praneet-Sinha-700x700.png',
         );
-        await getNonce("127.0.0.1:3001/api/nonce");
         await signInWithEthereum(
             'localhost:3000', 'I love pizza', 'localhost:3000', '1', '1');
-        await verifyMessage('127.0.0.1:3001/verify');
+        /* await getNonce("127.0.0.1:3001/api/nonce"); */
+        // wait 5 seconds to allow user to scan QR code
+        /* await verifyMessage('127.0.0.1:3001/verify'); */
       },
       child: Text('Connect wallet'),
     );
