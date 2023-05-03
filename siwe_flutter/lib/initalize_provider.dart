@@ -61,5 +61,6 @@ Future<void> initializeProvider(BuildContext context, String bridge,
   final sender = EthereumAddress.fromHex(session!.accounts[0]);
   // set address to global variable
   address = sender.hexEip55;
+  // remove observer
   WidgetsBinding.instance?.removeObserver(observer);
 }
