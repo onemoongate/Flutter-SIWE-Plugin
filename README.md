@@ -12,12 +12,13 @@ This plugin is an implementation of SIWE for the frontend of your app. It allows
 For more details on how SIWE works, please refer to the [SIWE documentation](https://docs.login.xyz/).
 ## Getting Started
 There are two ways to use the plugin, either using the default provider (walletconnect) or by bringing your own provider. We recommend using the default provider as it is easier to use and requires less setup time overall.
-
+Please look at the example app for a working example of the plugin using the default provider.
+### Using the default provider
 - Initalize and connect a wallet provider using:
 
     ```dart
-initializeEthereumProvider(BuildContext context, String bridge,
-    String name, String description, String url, String icon)
+    initializeEthereumProvider(BuildContext context, String bridge,
+        String name, String description, String url, String icon)
     ```
 Context is required to bring the modal pop-up on screen.
 The rest of the parameters are required to initalize the WalletConnect provider.
@@ -25,19 +26,29 @@ The rest of the parameters are required to initalize the WalletConnect provider.
 - Get nonce from backend server:
 
     ```dart
-getNonce(String url, String address)
-    ```
-
-- Create SIWE message:
-
-    ```dart
-    createMessage(domain, address, statement, uri, version, chainId, nonce) {
-    }
+    getNonce(String url, String address)
     ```
 
 - Sign SIWE message:
 
     ```dart
-    signMessage(message, address) {
-    }
+    signInWithEthereum(
+    String domain,String statement,String uri, String version,String chainId)
     ```
+- Verify Message:
+    ```dart 
+        verifyMessage(String url)
+        ```
+### Using your own provider
+
+- Initalize your own provider
+- Get nonce from backend server
+  ```dart
+    getNonce(String url, String address)
+    ```
+- Create a message using createExternalMessage()
+    ```dart
+        createExternalMessage(String domain,String statement,String uri, String version,String chainId)
+        ```
+- Sign the message using personal sign message with returned message from createExternalMessage()
+
