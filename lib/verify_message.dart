@@ -16,6 +16,7 @@ Future verifyMessage(url) async {
     // If the server returns a 200 OK response, parse the data
     var data = response.body;
     // Do something with the data
+    return data;
   } else {
     // If the server returns an error response, throw an exception
     throw Exception('Failed to load data from backend');
