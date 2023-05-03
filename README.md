@@ -38,17 +38,17 @@ The rest of the parameters are required to initalize the WalletConnect provider.
 - Verify Message:
     ```dart 
         verifyMessage(String url)
-        ```
+    ```
 ### Using your own provider
 
 - Initalize your own provider
 - Get nonce from backend server
   ```dart
-    getNonce(String url, String address)
+    getNonce(String url)
     ```
 - Create a message using createExternalMessage()
     ```dart
         createExternalMessage(String domain,String statement,String uri, String version,String chainId)
-        ```
+    ```
 - Sign the message using personal sign message with returned message from createExternalMessage()
 
