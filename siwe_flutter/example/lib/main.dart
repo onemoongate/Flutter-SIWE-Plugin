@@ -58,11 +58,12 @@ class __ConnectWalletButtonState extends State<_ConnectWalletButton> {
           'localhost:3000',
           'https://www.joinef.com/wp-content/uploads/2023/03/MoonGate-5-Praneet-Sinha-700x700.png',
         );
+        await getNonce("http://192.168.0.30:3001/api/nonce");
         await signInWithEthereum(
             'localhost:3000', 'I love pizza', 'localhost:3000', '1', '1');
-        /* await getNonce("127.0.0.1:3001/api/nonce"); */
+
         // wait 5 seconds to allow user to scan QR code
-        /* await verifyMessage('127.0.0.1:3001/verify'); */
+        await verifyMessage('http://192.168.0.30:3001/verify');
       },
       child: Text('Connect wallet'),
     );
