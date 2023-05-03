@@ -1,6 +1,4 @@
-// Create message to sign with nonce
-import 'package:siwe_flutter/library.dart';
-
+// Create message to sign with
 import 'create_message.dart';
 import 'sign_message.dart';
 

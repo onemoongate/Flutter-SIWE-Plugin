@@ -13,7 +13,7 @@ class WalletConnectObserver extends WidgetsBindingObserver {
   @override
   void didChangeAppLifecycleState(AppLifecycleState state) {
     if (state == AppLifecycleState.resumed) {
-      WidgetsBinding.instance?.addPostFrameCallback((_) {
+      WidgetsBinding.instance.addPostFrameCallback((_) {
         onAppResumed();
       });
     }
@@ -30,7 +30,7 @@ Future<void> initializeProvider(BuildContext context, String bridge,
   WalletConnectObserver observer = WalletConnectObserver(onAppResumed: () {
     appResumedCompleter.complete();
   });
-  WidgetsBinding.instance?.addObserver(observer);
+  WidgetsBinding.instance.addObserver(observer);
   // Create a connector
   walletModal = WalletConnectQrCodeModal(
     connector: WalletConnect(
@@ -62,5 +62,5 @@ Future<void> initializeProvider(BuildContext context, String bridge,
   // set address to global variable
   address = sender.hexEip55;
   // remove observer
-  WidgetsBinding.instance?.removeObserver(observer);
+  WidgetsBinding.instance.removeObserver(observer);
 }

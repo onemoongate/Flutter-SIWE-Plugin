@@ -13,7 +13,7 @@ createMessageTest() {
       const nonce = "8a8a3edfc6b575c3";
       final message = createMessage(domain, statement, uri, version, chainId);
 
-      final expectedStartsWith =
+      const expectedStartsWith =
           "$domain wants you to sign in with your Ethereum account:\n$address\n\n$statement\n\nURI: $uri\nVersion: $version\nChain ID: $chainId\nNonce: $nonce\nIssued At: ";
 
       expect(message.startsWith(expectedStartsWith), isTrue);

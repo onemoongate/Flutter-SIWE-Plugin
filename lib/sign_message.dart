@@ -8,12 +8,9 @@ Future<void> signMessage(message) async {
     print('Error: Ethereum provider is not initialized');
   } else {
     try {
-      final url = await walletModal?.openWalletApp();
-      print('Wallet app url: $url');
+      await walletModal?.openWalletApp();
       signature = await ethereumProvider?.personalSign(
           message: message, address: address ?? '', password: '');
-    } catch (error) {
-      print('Error: $error');
-    }
+    } catch (error) {}
   }
 }
