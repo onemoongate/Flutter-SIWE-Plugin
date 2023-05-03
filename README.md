@@ -26,7 +26,7 @@ The rest of the parameters are required to initalize the WalletConnect provider.
 - Get nonce from backend server:
 
     ```dart
-    getNonce(String url, String address)
+    getNonce(String url)
     ```
 
 - Sign SIWE message:
