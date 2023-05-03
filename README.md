@@ -52,4 +52,4 @@ The rest of the parameters are required to initalize the WalletConnect provider.
     ```
 - Sign the message using personal sign message with returned message from createExternalMessage()
 
-Many thanks to[@w4ll3](https://github.com/w4ll3) for his support in making this plugin.
+Many thanks to [@w4ll3](https://github.com/w4ll3) for his support in making this plugin.
