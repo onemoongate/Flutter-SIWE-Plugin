@@ -11,7 +11,6 @@ Future<void> getNonce(url) async {
     // If the server returns a 200 OK response, parse the data
 
     var data = response.body;
-    print("Data from get nonce: $data");
     nonce = data;
   } else {
     // If the server returns an error response, throw an exception
