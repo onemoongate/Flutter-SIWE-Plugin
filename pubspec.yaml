@@ -1,6 +1,6 @@
 name: siwe_flutter
 description: A frontend implementation of Sign in With Ethereum for Flutter.
-version: 0.0.12
+version: 0.0.13
 homepage: https://moongate.one/
 repository: https://github.com/onemoongate/Flutter-SIWE-Plugin
 publisher: moongate.one

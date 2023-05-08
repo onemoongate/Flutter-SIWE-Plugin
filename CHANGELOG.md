@@ -9,3 +9,7 @@
 ## 0.0.12
 
 * Update Metadata, add moongate as publisher
+
+## 0.0.13
+
+* Remove unneeded print statement
